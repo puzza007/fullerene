@@ -1,0 +1,13 @@
+{application, fullerene,
+ [
+  {description, "Mock Graphite Server"},
+  {vsn, "1.0.0"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  lager
+                 ]},
+  {mod, { fullerene_app, []}},
+  {env, []}
+ ]}.
