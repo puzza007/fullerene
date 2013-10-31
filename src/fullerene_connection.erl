@@ -25,7 +25,9 @@ handle_cast(_Msg, State) ->
     {stop, unhandled_cast, State}.
 
 handle_info({tcp, Socket, Line}, State=#state{socket=Socket}) ->
-    lager:info("Graphite: ~s", [Line]),
+    Len = byte_size(Line),
+    Line2 = binary:part(Line, 0, Len - 1),
+    lager:info("Graphite: ~s", [Line2]),
     {noreply, State};
 handle_info({tcp_closed, Socket}, State = #state{socket=Socket}) ->
     lager:info("Disconnection"),
