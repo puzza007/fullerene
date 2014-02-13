@@ -1,3 +1,6 @@
+%% -*- mode: erlang -*-
+%% vi: set ft=erlang :
+
 {application, fullerene,
  [
   {description, "Mock Graphite Server"},
@@ -9,5 +12,9 @@
                   lager
                  ]},
   {mod, { fullerene_app, []}},
-  {env, []}
+  {env,
+   [
+    {enabled, false},
+    {port, 2003}
+   ]}
  ]}.
