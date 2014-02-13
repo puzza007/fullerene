@@ -10,8 +10,8 @@
 -record(state, {}).
 
 start_link() ->
-    lager:warning("Starting Fullerene listener on 127.0.0.1:2003"),
     Port = application:get_env(fullerene, port, 2003),
+    lager:warning("Starting Fullerene listener on 127.0.0.1:~B", [Port]),
     gen_nb_server:start_link(?MODULE, "127.0.0.1", Port, []).
 
 init([]) ->
